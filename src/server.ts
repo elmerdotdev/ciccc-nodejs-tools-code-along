@@ -14,7 +14,12 @@ app.use(cors());
 app.use('/contact-us', pageRouter);
 
 app.get('/', (_req: Request, res: Response) => {
-  res.status(200).send('Welcome to my server!');
+  
+  
+  
+  
+  
+res.status(200).send('Welcome to my server!')
 });
 
 app.get('/about', (_req: Request, res: Response) => {
