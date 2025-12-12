@@ -2,7 +2,7 @@ import express, { Request, Response } from 'express';
 import dotenv from 'dotenv';
 dotenv.config();
 
-const users = [{ name: 'Miya' }, { name: 'Yuna' }];
+const users = [{ name: 'Miya' }, { name: 'Yuna' }, { name: 'Minji' }];
 
 const app = express();
 
