@@ -1,23 +1,27 @@
-import express, { Request, Response } from 'express';
+import cors from 'cors';
 import dotenv from 'dotenv';
-dotenv.config();
+import express, { Request, Response } from 'express';
+import helmet from 'helmet';
 
-const users = [{ name: 'Miya' }, { name: 'Yuna' }, { name: 'Minji' }];
+import pageRouter from './routes/page.routes';
+dotenv.config();
 
 const app = express();
 
-app.get('/', (req: Request, res: Response) => {
+app.use(helmet());
+app.use(cors());
+
+app.use('/contact', pageRouter);
+
+app.get('/', (_req: Request, res: Response) => {
   res.status(200).send('Welcome to my server!');
-  if (true) {
-    console.log('Hello');
-  }
 });
 
-app.get('/about', (req: Request, res: Response) => {
+app.get('/about', (_req: Request, res: Response) => {
   res.status(200).send('About Us');
 });
 
-app.use((req: Request, res: Response) => {
+app.use((_req: Request, res: Response) => {
   res.status(404).send('Invalid route!');
 });
 
